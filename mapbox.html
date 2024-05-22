@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Add a 3D Model</title>
+<title>Add a 3D model</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
@@ -14,15 +14,16 @@ body { margin: 0; padding: 0; }
 <body>
 <script src="https://unpkg.com/three@0.126.0/build/three.min.js"></script>
 <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
-  <div id="map"></div>
+<div id="map"></div>
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZHNlYXRvbmRlc2lnbiIsImEiOiJjbHczNHV4dGowdHhkMmtxcXg0b2w2b29rIn0.rOitZai3qDXmR97QAkjIMg';
     const map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/light-v11', // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-        center: [148.9819, -35.3981], // starting position [lng, lat]
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/light-v11',
+        zoom: 18,
+        center: [148.9819, -35.3981],
         pitch: 60,
-        zoom: 18 // starting zoom
         antialias: true // create the gl context with MSAA antialiasing, so custom layers are antialiased
     });
 
@@ -45,7 +46,7 @@ body { margin: 0; padding: 0; }
         rotateY: modelRotate[1],
         rotateZ: modelRotate[2],
         /* Since the 3D model is in real world meters, a scale transform needs to be
-         applied since the CustomLayerInterface expects units in MercatorCoordinates.
+         * applied since the CustomLayerInterface expects units in MercatorCoordinates.
          */
         scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits()
     };
@@ -132,7 +133,7 @@ body { margin: 0; padding: 0; }
         map.addLayer(customLayer, 'waterway-label');
     });
 </script>
+
 </body>
 </html>
-
 <!-- file built using example https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/ -->
